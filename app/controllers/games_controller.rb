@@ -22,6 +22,9 @@ class GamesController < ApplicationController
     end
   end
 
+  def home
+  end
+
   private
 
   def included?(word, letters)
