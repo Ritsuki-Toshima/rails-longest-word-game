@@ -1,3 +1,38 @@
-<h1>Result</h1>
-<p><%= @message %></p>
-<%= link_to "Play again", new_path %>
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div>
+    <div class="d-flex">
+      <h1>Game Result</h1>
+      <%= link_to "Go back home", root_path, class: "btn btn-outline-info ms-4 text-center", style: "line-height: 40px;" %>
+    </div>
+    <p><%= @message %></p>
+    <div class="d-flex justify-content-center align-items-center">
+      <div class="circle me-2">
+        <svg width="150px" height="150px">
+          <circle cx="70" cy="70" r="70"></circle>
+          <circle id="circle-stroke" cx="70" cy="70" r="70"></circle>
+          <defs>
+            <linearGradient id="bluegrad">
+              <stop id="stop1" offset="0%" stop-color="#2DCCE2" />
+              <stop id="stop2" offset="100%" stop-color="#0074E0" />
+            </linearGradient>
+            <linearGradient id="greengrad">
+              <stop id="stop1" offset="0%" stop-color="#51E22D" />
+              <stop id="stop2" offset="100%" stop-color="#00E08F" />
+            </linearGradient>
+            <linearGradient id="redgrad">
+              <stop id="stop1" offset="0%" stop-color="#F11111" />
+              <stop id="stop2" offset="100%" stop-color="#DC00E0" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="number"></div>
+        <div class="score-subtitle text-muted">your score</div>
+      </div>
+      <div class="ms-2">
+        <p>Your score is: <strong><%= @score.round(2) %></strong></p>
+        <p>Your time taken was: <strong><%= (@time.to_f*1000).round(1) %> seconds</strong></p>
+        <%= link_to "Play again!", new_path, class: "button-73" %>
+      </div>
+    </div>
+  </div>
+</div>
